@@ -17,15 +17,17 @@ apt install vim - по желанию, но я люблю этот тексто�
 		4.2 vim или nano /lib/systemd/system/имякакоезахочешь.service
 
 			[Unit]
-			Description=какоенибудьописаниетвоегосервиса
+			Description=Ramziv - Telegram Bot
+			After=syslog.target
 			After=network.target
-		
+
 			[Service]
-			User=хуйзнаетнадолиюзера
 			Type=simple
-			ExecStart=/usr/bin/python3 туткакяпонялпутьдопитонфайланомогуошибаться
+			WorkingDirectory=/home/ramziv_bot/
+			ExecStart=/usr/bin/python3 /home/ramziv_bot/main.py
+			RestartSec=60
 			Restart=always
-	
+
 			[Install]
 			WantedBy=multi-user.target
 		4.3 systemcl enable имякакоезахочешь.service
