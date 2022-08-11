@@ -54,20 +54,20 @@ apt install vim - по желанию, но я люблю этот тексто�
 	5. vim или nano /lib/systemd/system/своёназвание.service
 
 
-		[Unit]
-		Description=сюдаебашьописалово
-		After=network.target
+[Unit]
+Description=сюдаебашьописалово
+After=network.target
 
-		[Service]
-		User=хуйзнаетнадолиюзера
-		Group=www-data обычно по дефолту
-		WorkingDirectory=/путьдорабочейдириктории/
-		Environment="PATH=/путьдорабочейдириктории/myenv/bin"
-		ExecStart=/bin/bash -c 'source /путьдорабочейдиректории/env/bin/activate; gunicorn -w 3 --bind unix:/tmp/своёназвание/своёназвание.sock wsgi:app'
-		Restart=always
+[Service]
+User=хуйзнаетнадолиюзера
+Group=www-data обычно по дефолту
+WorkingDirectory=/путьдорабочейдириктории/
+Environment="PATH=/путьдорабочейдириктории/myenv/bin"
+ExecStart=/bin/bash -c 'source /путьдорабочейдиректории/env/bin/activate; gunicorn -w 3 --bind unix:/tmp/своёназвание/своёназвание.sock wsgi:app'
+Restart=always
 
-		[Install]
-		WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 
 	6. mkdir /tmp/своёназвание
 
